@@ -1,0 +1,44 @@
+@import url(https://fonts.googleapis.com/css?family=Oswald:200,300,regular,500,600,700);
+@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.loader {
+    border: 3px solid rgba(255, 255, 255, 0.6);
+    border-top: 3px solid white;
+    border-radius: 50%;
+    width: 1rem;
+    height: 1rem;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.ripple {
+    animation: ripple-animation 0.6s linear;
+}
+
+@keyframes ripple-animation {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+button:focus .ripple,
+button:hover .ripple {
+    display: block;
+}
+
+button:active .ripple {
+    transform: scale(0);
+    animation: ripple-animation 0.6s linear forwards;
+}
